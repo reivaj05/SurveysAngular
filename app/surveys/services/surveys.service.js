@@ -4,11 +4,9 @@
         .module("app.surveys.services")
         .factory("Surveys", Surveys);
 
-    function Surveys() {
-        var Surveys = {
+    Surveys.$inject = ["$resource"];
 
-        };
-
-        return Surveys;
+    function Surveys($resource) {
+        return $resource(constants.BASE_URL + "surveys/:surveyId", {surveyId: "@surveyId"});
     }
 })();
