@@ -12,7 +12,11 @@
   
   <div ng-include="'navbar.html'"></div>
 
-  <div ui-view></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 ui-view"></div>
+    </div>
+  </div>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
