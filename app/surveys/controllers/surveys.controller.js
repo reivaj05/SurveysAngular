@@ -7,12 +7,26 @@
     SurveysController.$inject = ["Surveys"];
 
     function SurveysController(Surveys) {
-        var self = this;
+        let self = this;
         self.surveys = null;
         
         self.getAll = getAll;
         self.init = init;
         self.changeStatusSurvey = changeStatusSurvey;
+        self.numberOfSections = numberOfSections;
+        self.numberOfQuestions = numberOfQuestions;
+
+        function numberOfSections(survey) {
+            return survey.sections.length;
+        }
+
+        function numberOfQuestions(sections) {
+            let countQuestions = 0;
+            for(let section of sections){
+                countQuestions += section.questions.length;
+            }
+            return countQuestions;
+        }
 
         self.init();
 
@@ -22,6 +36,7 @@
 
         function init() {
             self.getAll();
+            console.log(self.surveys);
         }
 
         function getAll() {

@@ -24,14 +24,14 @@
                 Created: {{ survey.created_at | date:'medium'}}
             </span>
             <span class="pull-right small">
-                Number of sections: {{ 10 }}
+                Number of sections: {{ vm.numberOfSections(survey) }}
             </span>
             <br>
             <span class="small">
                 Last update: {{ survey.updated_at | date:'medium'}}
             </span>
             <span class="pull-right small">
-                Number of questions: {{ 10 }}
+                Number of questions: {{ vm.numberOfQuestions(survey.sections) }}
             </span>
         </div>    
     </div>
