@@ -14,10 +14,14 @@
       $urlRouterProvider.otherwise("/home");
 
       $stateProvider
-        .state("all", {
-          url: "/all",
-          templateUrl: "app/templates/users/users.html",
-          controller: "UsersController",
+        .state("home", {
+            url: "/home",
+            templateUrl:"templates/home.html",
+        })
+        .state("surveys", {
+          url: "/home/surveys",
+          templateUrl: "templates/surveys/surveys.html",
+          controller: "SurveysController",
           controllerAs: "vm"
         })
         .state("userEdit", {
@@ -25,10 +29,6 @@
           templateUrl: "app/templates/users/user-edit.html",
           controller: "UserEditController",
           controllerAs: "vm"
-        })
-        .state("home", {
-            url: "/home",
-            templateUrl:"templates/home.html"
         });
     }
 })();
