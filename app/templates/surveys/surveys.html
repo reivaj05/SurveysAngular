@@ -1,0 +1,38 @@
+<div class="row col-md-12" >
+    <div class="panel panel-default" ng-repeat="survey in vm.surveys">
+        <div class="panel-heading">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-primary btn-xs">View</button>
+                <button type="button" class="btn btn-primary btn-xs">Edit</button>
+                <button type="button" class="btn btn-danger btn-xs">Delete</button>
+            </div>
+            <h3 class="panel-title">{{ survey.title }}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row panel-body">
+                {{ survey.description }}
+                <button type="button"
+                        class="btn btn-primary btn-sm pull-right"
+                        ng-class="{'btn-success': survey.active, 'btn-danger': !survey.active}"
+                        ng-click="vm.changeStatusSurvey(survey)">
+                        {{ survey.active ? 'Active' : 'Inactive' }}
+                </button>    
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="small">
+                Created: {{ survey.created_at | date:'medium'}}
+            </span>
+            <span class="pull-right small">
+                Number of sections: {{ 10 }}
+            </span>
+            <br>
+            <span class="small">
+                Last update: {{ survey.updated_at | date:'medium'}}
+            </span>
+            <span class="pull-right small">
+                Number of questions: {{ 10 }}
+            </span>
+        </div>    
+    </div>
+</div>
