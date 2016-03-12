@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h1>Create your survey</h1>
+        <form role="form" ng-submit="vm.surveyCreate()">
+            <div class="well">
+                <div class="form-group">
+                    <label for="survey__title">Title</label>
+                    <input type="text" name="" id="survey__title" class="form-control" ng-model="vm.survey.title" placeholder="Some descriptive title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="survey__description">Description</label>
+                    <textarea name="desciption"
+                            class="form-control" 
+                            id="survey__description"
+                            cols="30"
+                            rows="5"
+                            ng-model="vm.survey.description"
+                            placeholder="A description of what your survey is for">
+                    </textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>  
+                    <button ui-sref="all" class="btn btn-danger">Cancel</button>
+                    <button type="button" ng-show="vm.isEditing" ng-click="vm.showModalDeleteUser()" class="btn btn-danger">Delete</button>
+                </div>        
+            </div>
+        </form>
+    </div>
+</div>  
