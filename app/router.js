@@ -24,10 +24,10 @@
           controller: "SurveysController",
           controllerAs: "vm"
         })
-        .state("userEdit", {
-          url: "/user/{userId:[0-9]+}/edit",
-          templateUrl: "app/templates/users/user-edit.html",
-          controller: "UserEditController",
+        .state("createSurvey", {
+          url: "/home/surveys/create",
+          templateUrl: "templates/surveys/create-survey.html",
+          controller: "CreateSurveyController",
           controllerAs: "vm"
         });
     }
