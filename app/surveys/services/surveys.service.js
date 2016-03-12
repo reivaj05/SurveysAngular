@@ -7,6 +7,6 @@
     Surveys.$inject = ["$resource"];
 
     function Surveys($resource) {
-        return $resource(constants.BASE_URL + "surveys/:surveyId", {surveyId: "@surveyId"});
+        return $resource(constants.BASE_URL + "surveys/:surveyId/", {surveyId: "@surveyId"});
     }
 })();
