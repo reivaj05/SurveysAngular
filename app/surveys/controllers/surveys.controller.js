@@ -13,6 +13,7 @@
         self.getAll = getAll;
         self.init = init;
         self.changeStatusSurvey = changeStatusSurvey;
+        self.deleteSurvey = deleteSurvey;
         self.numberOfSections = numberOfSections;
         self.numberOfQuestions = numberOfQuestions;
 
@@ -30,18 +31,21 @@
 
         self.init();
 
-        function changeStatusSurvey(survey) {
-            survey.active = !survey.active;
-        }
-
-        function init() {
-            self.getAll();
-            console.log(self.surveys);
-        }
-
         function getAll() {
             self.surveys = Surveys.query();
         }
 
+        function init() {
+            self.getAll();
+        }
+
+        function changeStatusSurvey(survey) {
+            survey.active = !survey.active;
+        }
+
+        function deleteSurvey(index, surveyId) {
+            Surveys.remove({surveyId});
+            self.surveys.splice(index, 1);
+        }
     }
 })();
