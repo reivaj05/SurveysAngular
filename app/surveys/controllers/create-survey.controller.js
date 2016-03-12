@@ -13,9 +13,16 @@
         self.createSurvey = createSurvey;
 
         function createSurvey() {
-            Surveys.save(self.survey);
-            $location.path("/home/surveys");
+            Surveys.save(self.survey, success, error);
             
+            function success(data) {
+                $location.path("/home/surveys");
+                toastr.success("Survey created", "YAY!!!");
+            }
+
+            function error() {
+                toastr.error("There was an error", "Nooooo!");
+            }
         }
     }
 })();
