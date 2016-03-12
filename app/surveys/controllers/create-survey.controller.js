@@ -5,14 +5,16 @@
         .controller("CreateSurveyController", CreateSurveyController);
 
 
-    CreateSurveyController.$inject = ["Surveys"];
+    CreateSurveyController.$inject = ["$location", "Surveys"];
 
-    function CreateSurveyController(Surveys) {
+    function CreateSurveyController($location, Surveys) {
         let self = this;
-        self.survey = {};
+        self.survey = {sections : []};
         self.createSurvey = createSurvey;
 
         function createSurvey() {
+            Surveys.save(self.survey);
+            $location.path("/home/surveys");
             
         }
     }
