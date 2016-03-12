@@ -5,7 +5,8 @@
         "app.surveys",
         "app.accounts",
         "app.router",
-        "ngResource"
+        "ngResource",
+        "ngDialog"
     ])
     .config(config);
 
