@@ -46,8 +46,16 @@
 
 
         function deleteSurvey(index, surveyId) {
-            Surveys.remove({surveyId});
-            self.surveys.splice(index, 1);
+            Surveys.remove({surveyId}, success, error);
+
+            function success(data) {
+                self.surveys.splice(index, 1);
+                toastr.success("The survey was deleted", "Success");
+            }
+
+            function error() {
+                toastr.error("The survey couldn't be deleted", "Sorry!!");
+            }
         }
 
         function numberOfSections(survey) {
