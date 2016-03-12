@@ -1,7 +1,13 @@
+<div class="row col-md-12">
+    <button ui-sref="createSurvey" type="button" class="btn btn-primary pull-right">
+        Create new survey
+    </button>
+    <br><br>
+</div>
 <div class="row col-md-12" >
     <div class="panel panel-default" ng-repeat="survey in vm.surveys">
         <div class="panel-heading">
-            <div class="btn-group pull-right">
+            <div class="pull-right">
                 <button type="button" class="btn btn-primary btn-xs">View</button>
                 <button type="button" class="btn btn-primary btn-xs">Edit</button>
                 <button type="button" class="btn btn-danger btn-xs">Delete</button>
