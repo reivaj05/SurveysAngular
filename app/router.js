@@ -29,6 +29,18 @@
           templateUrl: "templates/surveys/create-survey.html",
           controller: "CreateSurveyController",
           controllerAs: "vm"
+        })
+        .state("signup", {
+          url: "/accounts/signup",
+          templateUrl: "templates/accounts/signup.html",
+          controller: "SignupController",
+          controllerAs: "vm"
+        })
+        .state("signin", {
+          url: "/accounts/signin",
+          templateUrl: "templates/accounts/signin.html",
+          controller: "SigninController",
+          controllerAs: "vm"
         });
     }
 })();
