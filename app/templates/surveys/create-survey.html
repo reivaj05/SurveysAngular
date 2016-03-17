@@ -3,6 +3,8 @@
         <h1>Create your survey</h1>
         <form role="form" ng-submit="vm.createSurvey()">
             <div class="well">
+
+                <!-- form.Survey -->
                 <div class="form-group">
                     <label for="survey__title">Title</label>
                     <input type="text" name="" id="survey__title" class="form-control" ng-model="vm.survey.title" placeholder="Some descriptive title" required>
@@ -18,6 +20,34 @@
                             ng-model="vm.survey.description"
                             placeholder="A description of what your survey is for">
                     </textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-success" ng-click="vm.addSection()">Add section</button>  
+                </div>
+                
+                <div ng-repeat="section in vm.survey.sections">
+                    <!-- form.section -->
+                    <div class="form-group">
+                        <label for="section__title">Title</label>
+                        <input type="text" name="" id="section__title" class="form-control" ng-model="section.title" placeholder="Some descriptive title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="section__description">Description</label>
+                        <textarea name="desciption"
+                                class="form-control" 
+                                id="section__description"
+                                cols="30"
+                                rows="5"
+                                ng-model="section.description"
+                                placeholder="A description of what your section is for">
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-danger" ng-click="vm.removeSection($index)">Delete section</button>  
+                    </div>
                 </div>
 
                 <div class="form-group">
