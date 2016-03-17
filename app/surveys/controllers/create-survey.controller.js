@@ -11,6 +11,8 @@
         let self = this;
         self.survey = {sections : []};
         self.createSurvey = createSurvey;
+        self.addSection = addSection;
+        self.removeSection = removeSection;
 
         function createSurvey() {
             Surveys.save(self.survey, success, error);
@@ -23,6 +25,15 @@
             function error() {
                 toastr.error("There was an error", "Nooooo!");
             }
+        }
+
+        function addSection() {
+            self.survey.sections.push({});
+            console.log(self.survey.sections);
+        }
+
+        function removeSection(index) {
+            self.survey.sections.splice(index, 1)
         }
     }
 })();
