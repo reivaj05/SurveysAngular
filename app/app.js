@@ -4,6 +4,7 @@
     angular.module("app", [
         "app.surveys",
         "app.accounts",
+        "app.question-types",
         "app.router",
         "ngResource",
         "ngDialog"
