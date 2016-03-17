@@ -5,14 +5,23 @@
         .controller("CreateSurveyController", CreateSurveyController);
 
 
-    CreateSurveyController.$inject = ["$location", "Surveys"];
+    CreateSurveyController.$inject = ["$location", "Surveys", "QuestionTypes"];
 
-    function CreateSurveyController($location, Surveys) {
+    function CreateSurveyController($location, Surveys, QuestionTypes) {
         let self = this;
         self.survey = {sections : []};
+        self.questionTypes = {};
+        self.init = init;
         self.createSurvey = createSurvey;
         self.addSection = addSection;
         self.removeSection = removeSection;
+        self.getQuestionTypes = getQuestionTypes;
+
+        self.init();
+
+        function init() {
+            self.getQuestionTypes();
+        }
 
         function createSurvey() {
             Surveys.save(self.survey, success, error);
@@ -34,6 +43,11 @@
 
         function removeSection(index) {
             self.survey.sections.splice(index, 1)
+        }
+
+        function getQuestionTypes() {
+            self.questionTypes = QuestionTypes.query();
+            console.log(self.questionTypes);
         }
     }
 })();
